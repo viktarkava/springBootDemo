@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.lang.NonNull;
 
 import com.example.demo.model.Person;
 import com.example.demo.service.PersonService;
@@ -49,7 +50,7 @@ public class PersonController {
 	}
 	
 	@PutMapping(path = "{id}")
-	public int updatePerson(@PathVariable("id") UUID id, @RequestBody Person personToUpdate) {
+	public int updatePerson(@PathVariable("id") UUID id, @NonNull @RequestBody Person personToUpdate) {
 		return personService.updatePerson(id, personToUpdate);
 	}
 }
